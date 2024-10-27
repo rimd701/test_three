@@ -1,46 +1,112 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 3D Shape Viewer
 
-## Available Scripts
+A React-based application that displays 3D shapes in a table format and allows users to render them in a 3D canvas. Users can create new shapes, delete existing shapes, and render all shapes side-by-side in a 3D view with interactive controls.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Shape Management**: Add, view, and delete shapes with their name and type.
+- **3D Canvas Rendering**: View all shapes in a 3D space side by side when the "Render All Shapes" button is clicked.
+- **Interactive Controls**: Use mouse controls (pan, zoom, rotate) to navigate the 3D canvas.
+- **Shape Selection**: Shapes are clickable in the 3D view to identify and highlight each one.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Structure
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **`App.tsx`**: Main app entry point.
+- **`pages/ShapePage.tsx`**: The main page handling the display and rendering of shapes.
+- **`components/ShapeTable.tsx`**: Renders the table with all shapes and delete functionality.
+- **`components/CanvasRenderer.tsx`**: Renders all shapes in a 3D canvas.
+- **`components/CreateShapeModal.tsx`**: Modal form for adding new shapes.
+- **`hooks/useShapesStorage.ts`**: Manages shape data in local state.
+- **`types/shapes.ts`**: Defines the `Shape` type.
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- [Node.js](https://nodejs.org/en/) (version 14 or higher)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/) package manager
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/3d-shape-viewer.git
+   cd 3d-shape-viewer
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-### `npm run eject`
+### Running the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To start the application locally:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+# or
+yarn start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The application should now be running on `http://localhost:3000`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Build for Production
 
-## Learn More
+To create a production build:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+# or
+yarn build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This will generate a `build` folder with the production-optimized application.
+
+
+
+Here's how to add Docker support to your project, including a `Dockerfile` and an update to the `README.md` file with Docker instructions.
+
+---
+
+### Use Docker
+
+Add Docker instructions to the README file:
+
+```markdown
+## Docker Instructions
+
+To run the 3D Shape Viewer application using Docker:
+
+### Build the Docker Image
+
+From the project root directory, run the following command to build the Docker image:
+
+```bash
+docker build -t 3d-shape-viewer .
+```
+
+### Run the Docker Container
+
+Run the following command to start a container from the image, mapping port 3000 on your host to port 3000 in the container:
+
+```bash
+docker run -p 3000:3000 3d-shape-viewer
+```
+
+The application should now be accessible at `http://localhost:3000`.
+
+### Docker Cleanup
+
+To remove the Docker image after you are done, you can run:
+
+```bash
+docker rmi 3d-shape-viewer
+```
+
+---
+
+With these instructions, you should now be able to build and run your application in a Docker container. The app will be served at `http://localhost:3000`, allowing for a consistent deployment environment.
