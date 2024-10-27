@@ -5,7 +5,7 @@ import { Shape } from '../types';
 interface ShapeTableProps {
   shapes: Shape[];
   onDelete: (id: number) => void;
-  onRender: (shape: Shape) => void;
+  onRender: (shape: Shape, name: String) => void;
 }
 
 export const ShapeTable: React.FC<ShapeTableProps> = ({ shapes, onDelete, onRender }) => (
@@ -25,7 +25,7 @@ export const ShapeTable: React.FC<ShapeTableProps> = ({ shapes, onDelete, onRend
           <TableCell>{shape.name}</TableCell>
           <TableCell>{shape.type}</TableCell>
           <TableCell>
-            <Button onClick={() => onRender(shape)} color="primary">Render</Button>
+            <Button onClick={() => onRender(shape, shape.name)} color="primary">Render</Button>
             <Button onClick={() => onDelete(shape.id)} color="secondary">Delete</Button>
           </TableCell>
         </TableRow>
